@@ -5,12 +5,12 @@
 class ArcadeEngine < Formula
   desc "Engine for Arcade"
   homepage "https://arcade.dev/"
-  version "1.0.9"
+  version "1.0.8"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://arcadeai-releases.s3.amazonaws.com/macos/v1.0.9/arcade-engine_1.0.9_Darwin_x86_64.tar.gz"
-      sha256 "bd3cd40e570de8be38501b090222bd69c929ce83e467304c293cef4dc4dd1795"
+      url "https://arcadeai-releases.s3.amazonaws.com/macos/v1.0.8/arcade-engine_1.0.8_Darwin_x86_64.tar.gz"
+      sha256 "0553b6af5ec2a933c66ac1e20bb06f3faedf52242649380bb38974a3aed85612"
 
       def install
         bin.install "arcade-engine"
@@ -19,8 +19,8 @@ class ArcadeEngine < Formula
       end
     end
     if Hardware::CPU.arm?
-      url "https://arcadeai-releases.s3.amazonaws.com/macos/v1.0.9/arcade-engine_1.0.9_Darwin_arm64.tar.gz"
-      sha256 "a369781e41be3919079bd5d8d97badfb72c498c83ea72c4ae6481f2e450fd7d7"
+      url "https://arcadeai-releases.s3.amazonaws.com/macos/v1.0.8/arcade-engine_1.0.8_Darwin_arm64.tar.gz"
+      sha256 "96a99716cb1c774e6cf4669825f23de07f9a48c960409ebb025dd1afcd1c7fa2"
 
       def install
         bin.install "arcade-engine"
@@ -33,8 +33,20 @@ class ArcadeEngine < Formula
   on_linux do
     if Hardware::CPU.intel?
       if Hardware::CPU.is_64_bit?
-        url "https://arcadeai-releases.s3.amazonaws.com/macos/v1.0.9/arcade-engine_1.0.9_Linux_x86_64.tar.gz"
-        sha256 "c47ba0b42317ebafc3bd9f478116f2b49ea87af77bc2a250b4607e1621c0e6d5"
+        url "https://arcadeai-releases.s3.amazonaws.com/macos/v1.0.8/arcade-engine_1.0.8_Linux_x86_64.tar.gz"
+        sha256 "bb0de027a9f12175f61a37953c354c443b2b94754f1fafc9b48f6624705eb2e7"
+
+        def install
+          bin.install "arcade-engine"
+          pkgetc.install 'engine.yaml'
+          pkgetc.install 'engine.env'
+        end
+      end
+    end
+    if Hardware::CPU.arm?
+      if Hardware::CPU.is_64_bit?
+        url "https://arcadeai-releases.s3.amazonaws.com/macos/v1.0.8/arcade-engine_1.0.8_Linux_arm64.tar.gz"
+        sha256 "3ffc76716edcf3df624d1461249b97c82e9d3e21a4df130a73a88253bc43eab7"
 
         def install
           bin.install "arcade-engine"
