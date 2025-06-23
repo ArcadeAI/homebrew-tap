@@ -5,17 +5,49 @@
 class ArcadeEngine < Formula
   desc "Engine for Arcade"
   homepage "https://arcade.dev/"
-  version "1.3.3"
-  depends_on :macos
+  version "1.2.35"
 
-  on_arm do
-    url "https://arcadeai-releases.s3.amazonaws.com/macos/v1.3.3/arcade-engine_1.3.3_Darwin_arm64.tar.gz"
-    sha256 "9365a942f269a0e3b01dc7a60d974465b99113c72d6240ff795655a0c9efd19f"
+  on_macos do
+    if Hardware::CPU.intel?
+      url "https://arcadeai-releases.s3.amazonaws.com/macos/v1.2.35/arcade-engine_1.2.35_Darwin_x86_64.tar.gz"
+      sha256 "45003ab51f3da6748c236d733f95a0aeb8ab4480e6e1921d40f9afe67c0e8eb3"
 
-    def install
-      bin.install "arcade-engine"
-      pkgetc.install 'engine.yaml'
-      pkgetc.install 'engine.env'
+      def install
+        bin.install "arcade-engine"
+        pkgetc.install 'engine.yaml'
+        pkgetc.install 'engine.env'
+      end
+    end
+    if Hardware::CPU.arm?
+      url "https://arcadeai-releases.s3.amazonaws.com/macos/v1.2.35/arcade-engine_1.2.35_Darwin_arm64.tar.gz"
+      sha256 "4d443fab67146c896b776b6e1f5321d1b060ab70344e191683f28bf3a930dea7"
+
+      def install
+        bin.install "arcade-engine"
+        pkgetc.install 'engine.yaml'
+        pkgetc.install 'engine.env'
+      end
+    end
+  end
+
+  on_linux do
+    if Hardware::CPU.intel? and Hardware::CPU.is_64_bit?
+      url "https://arcadeai-releases.s3.amazonaws.com/macos/v1.2.35/arcade-engine_1.2.35_Linux_x86_64.tar.gz"
+      sha256 "68052f0f29a57705094406cb0e33dfc9e5a1602d1436de455559f179bcb1ad58"
+      def install
+        bin.install "arcade-engine"
+        pkgetc.install 'engine.yaml'
+        pkgetc.install 'engine.env'
+      end
+    end
+    if Hardware::CPU.arm? and Hardware::CPU.is_64_bit?
+      url "https://arcadeai-releases.s3.amazonaws.com/macos/v1.2.35/arcade-engine_1.2.35_Linux_arm64.tar.gz"
+      sha256 "54a5367eb8c9a663adcbf5fbc381bdba5e4922b63db2084134744b3a3fccb52a"
+      def install
+        bin.install "arcade-engine"
+        pkgetc.install 'engine.yaml'
+        pkgetc.install 'engine.env'
+      end
     end
   end
 
