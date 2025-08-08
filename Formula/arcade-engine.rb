@@ -5,12 +5,12 @@
 class ArcadeEngine < Formula
   desc "Engine for Arcade"
   homepage "https://arcade.dev/"
-  version "3.0.0"
+  version "3.0.1"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://arcadeai-releases.s3.amazonaws.com/macos/v3.0.0/arcade-engine_3.0.0_Darwin_x86_64.tar.gz"
-      sha256 "b805ea0d3ac7962bbcf7d79c3bed18fe45ca380a99bffb1bb672ab5fe48bfa00"
+      url "https://arcadeai-releases.s3.amazonaws.com/macos/v3.0.1/arcade-engine_3.0.1_Darwin_x86_64.tar.gz"
+      sha256 "a1fafee0eb2301d9033e23956366b34dba5968e413798acf8ea06aea2ea218e0"
 
       def install
         bin.install "arcade-engine"
@@ -19,8 +19,8 @@ class ArcadeEngine < Formula
       end
     end
     if Hardware::CPU.arm?
-      url "https://arcadeai-releases.s3.amazonaws.com/macos/v3.0.0/arcade-engine_3.0.0_Darwin_arm64.tar.gz"
-      sha256 "b0a438a815a226e342f6e164b403a0d5e324e4a0d4f6cbcd85d831196478d31f"
+      url "https://arcadeai-releases.s3.amazonaws.com/macos/v3.0.1/arcade-engine_3.0.1_Darwin_arm64.tar.gz"
+      sha256 "0a573d9c94133874f5af2e484191979a91108265a22cb49e58643c3758e76c5e"
 
       def install
         bin.install "arcade-engine"
@@ -32,8 +32,8 @@ class ArcadeEngine < Formula
 
   on_linux do
     if Hardware::CPU.intel? and Hardware::CPU.is_64_bit?
-      url "https://arcadeai-releases.s3.amazonaws.com/macos/v3.0.0/arcade-engine_3.0.0_Linux_x86_64.tar.gz"
-      sha256 "97cca52393afd26ae2240946fead9af56408e787ca34c5cc08e8fbf29d1e3e35"
+      url "https://arcadeai-releases.s3.amazonaws.com/macos/v3.0.1/arcade-engine_3.0.1_Linux_x86_64.tar.gz"
+      sha256 "d2f6bcb9c53eb41b2fdccd1d0301d747d18045cfc41eaa9caad853e70b8c74a4"
       def install
         bin.install "arcade-engine"
         pkgetc.install 'engine.yaml'
@@ -41,8 +41,8 @@ class ArcadeEngine < Formula
       end
     end
     if Hardware::CPU.arm? and Hardware::CPU.is_64_bit?
-      url "https://arcadeai-releases.s3.amazonaws.com/macos/v3.0.0/arcade-engine_3.0.0_Linux_arm64.tar.gz"
-      sha256 "5f8f6ae638c0a03e786c59231fd90e462b9182d55e4c1edb97165bc23ddf8f2c"
+      url "https://arcadeai-releases.s3.amazonaws.com/macos/v3.0.1/arcade-engine_3.0.1_Linux_arm64.tar.gz"
+      sha256 "13cac7647cceaf99159750b24fb69e6394ebc8731e070ec1cb230fc2f565e8f7"
       def install
         bin.install "arcade-engine"
         pkgetc.install 'engine.yaml'
